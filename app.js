@@ -19,7 +19,6 @@ const displayCategories = categories =>{
     //creating and appending categories
 const categoryName = document.createElement('p');
 
-//categoryName.innerText=category.category_name;
 categoryName.innerHTML=`
 <p onclick ="categoryDetail(${category.category_id})">${category.category_name}</p>
 `;
@@ -34,7 +33,7 @@ fetch(url)
 .then (res => res.json())
 .then (data => showCategoryDetail(data.data))
 .catch(error => console.log(error));
-//     console.log(url);
+
 }
 
 const showCategoryDetail= details=>{
@@ -42,7 +41,7 @@ const showCategoryDetail= details=>{
      const noNews =document.getElementById('no-news');
     if(details.length===0){
         noNews.classList.remove('d-none');
-        //console.log(noNews);
+    
     }
     else{
         noNews.classList.add('d-none')
@@ -60,22 +59,36 @@ details.forEach(detail=>{
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">${detail.title}</h5>
-        <p class="card-text">${detail.details}</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title">${detail.title?detail.title:'No data found'}</h5>
+        <p  class="card-text text-truncate  ">${detail.details}</p>
+        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex gap-2 align-items-center">
+        <img src="${detail.author.img?detail.author.img:'No data found'}" class="img-fluid  rounded-circle" style="width:50px" alt="...">
+        <p class="card-text">${detail.author.name?detail.author.name:'No data found'}</p>
+
+        </div>
+        <p class="card-text  my-auto">Views- ${detail.total_view?detail.total_view:'No data found'}</p>
+<button class="btn btn-outline-success"> See Detail</button>
+</div>
       </div>
     </div>
   </div>
     
     `;
+    
+
     cardContainer.appendChild(cardDiv);
 
-    //console.log(detail.length)
+
 
 })
+//item quantity
+const itemField =document.getElementById('item-field');
+itemField.innerText= details.length
+console.log(details.length)
     }
     
 
 
 loadCategories();
-categoryDetail(01);
+categoryDetail(08);
