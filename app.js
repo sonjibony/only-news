@@ -59,8 +59,21 @@ const showCategoryDetail= details=>{
     }
     cardContainer.innerHTML='';
     
-details.forEach(detail=>{
+   // console.log(details);
     
+ details.sort((a,b)=>{
+    return b.total_view - a.total_view;
+ })
+details.forEach(detail=>{
+
+//console.log(detail.author)
+
+    // const c = detail.total_view
+    // x.push(c);
+    // let y= x.sort((a,b)=>b.total_view-a.total_view)
+    // console.log(y);
+    // // 
+
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card', 'mb-3', 'w-75', 'border-0', 'shadow-sm')
     cardDiv.innerHTML=`
@@ -87,7 +100,9 @@ details.forEach(detail=>{
     
     `;
     cardContainer.appendChild(cardDiv);
-    //console.log(detail._id)
+    // let x= detail.total_view
+    // x.sort(function (a,b){return  b-a});
+    // console.log(x)
 })
 //item quantity
 const itemField =document.getElementById('item-field');
