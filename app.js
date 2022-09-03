@@ -133,4 +133,4 @@ modalDetail.innerHTML=`
 
 
 loadCategories();
-categoryDetail(08);
+categoryDetail(01);

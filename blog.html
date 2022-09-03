@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body class="container">
+    <h1 class="text-center text-success fw-bold py-3">Welcome!</h1>
+<!-- question answer through accordion -->
+
+<div class="accordion mt-5" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <!-- --------------
+                first question
+             ------------------->
+            What's the differences between let and var?
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+              <!-- --------------
+                first answer
+             ------------------->
+          <strong>Let</strong> is block-scoped. It does not allow to redeclare variables. Also hoisting does not occur in Let. On the other hand           <strong>Var</strong> is function-scoped. It allows to redeclare variables. And hoisting occurs in Var.
+        </div>
+      </div>
+    </div>
+
+             <!-- --------------
+                second question
+             ------------------->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+
+            What is the difference between an arrow function and a regular function?
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+         In a <strong> regular function</strong> its internal <code>this</code> value is dynamic. It depends on how function is invoked.
+         But in <strong> arrow function</strong> there are no <code>this</code>, if we access this in the arrow function it will return this of the closest non-arrow parent function. we can use the <code>new</code> keyword on the <strong>regular function</strong> to create a new object. But <strong>arrow function</strong> cannot be called with new. In <strong>regular functions</strong> sometimes <code>duplicate named parameters</code> are allowed. While <strong>arrow function</strong> does not allow it.
+        </div>
+      </div>
+    </div>
+              <!-- --------------
+                third question
+             ------------------->
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            What is template string in why we use it?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>Template strings</strong> are a powerful feature of modern JS released in ES6.It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements.Template literals are literals delimited with <code>backtick (`) characters</code>, allowing for multi-line strings, for string interpolation with embedded expressions, and for special constructs called tagged templates.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="text-decoration-none text-black">
+    <button class="btn btn-outline-success mt-5">
+       Back To News
+    </a>
+</button>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>
