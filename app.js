@@ -33,6 +33,9 @@ categoryField.appendChild(categoryName);
 // })
 
 const categoryDetail =(categoryId)=>{
+    //loading spinner
+    toggleSpinner(true);
+ 
 const url = ` https://openapi.programming-hero.com/api/news/category/0${categoryId}`;
 fetch(url)
 .then (res => res.json())
@@ -43,6 +46,7 @@ fetch(url)
 
 const showCategoryDetail= details=>{
     const cardContainer = document.getElementById('card-container');
+
 
     //no news message showed
      const noNews =document.getElementById('no-news');
@@ -88,7 +92,9 @@ details.forEach(detail=>{
 //item quantity
 const itemField =document.getElementById('item-field');
 itemField.innerText= details.length
-//console.log(details)
+
+//stopping spinner
+toggleSpinner(false);
     }
   /*------------------
   loading news details
@@ -100,6 +106,7 @@ fetch (url)
 .then (data => showNewsDetail(data.data))
 .catch(error => console.log(error))
 
+
 }
 
 /*------------------
@@ -107,6 +114,8 @@ fetch (url)
   --------------------*/
 const showNewsDetail= details =>{
     details.forEach(detail => {
+        //toggleSpinner(true);
+ 
 const title = document.getElementById('exampleModalLabel');
 title.innerText= detail.title;
 const modalDetail = document.getElementById('modal-detail');
@@ -118,17 +127,24 @@ modalDetail.innerHTML=`
 <p class="card-text">Badge: ${detail.rating.badge?detail.rating.badge:'No data found'}</p>
 <p class="card-text">Total Views: ${detail.total_view?detail.total_view:'No data found'}</p>
 `;
-// const modalDiv = document.createElement('div');
-// modalDiv.innerHTML =`
-// <p> hiiii</p>
-
-// `;
-// modalBody.appendChild(modalDiv);
 
         console.log(detail)
     });
 
    //console.log(details) 
+}
+
+/*------------------
+  spinner
+  --------------------*/
+  const toggleSpinner = isLoading =>{
+    const spinnerSection = document.getElementById('spinner');
+    if(isLoading === true){
+        spinnerSection.classList.remove('d-none')
+    }
+    else{
+        spinnerSection.classList.add('d-none');
+    }
 }
 
 
