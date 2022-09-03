@@ -27,11 +27,6 @@ categoryField.appendChild(categoryName);
 });
 }
 
-// const categoryColor = document.getElementById(category-color).addEventListener('click',function(){
-// console.log(333)
-
-// })
-
 const categoryDetail =(categoryId)=>{
     //loading spinner
     toggleSpinner(true);
@@ -59,22 +54,18 @@ const showCategoryDetail= details=>{
     }
     cardContainer.innerHTML='';
     
-   // console.log(details);
-    
- details.sort((a,b)=>{
+   /*----------------------------------
+    showing most viewed news for bonus
+   ------------------------------------*/
+    details.sort((a,b)=>{
     return b.total_view - a.total_view;
- })
+     })
+
+   /*----------------------------------
+    showing all news in one category
+   ------------------------------------*/
 details.forEach(detail=>{
-
-//console.log(detail.author)
-
-    // const c = detail.total_view
-    // x.push(c);
-    // let y= x.sort((a,b)=>b.total_view-a.total_view)
-    // console.log(y);
-    // // 
-
-    const cardDiv = document.createElement('div');
+ const cardDiv = document.createElement('div');
     cardDiv.classList.add('card', 'mb-3', 'w-75', 'border-0', 'shadow-sm')
     cardDiv.innerHTML=`
     <div class="row g-0">
@@ -100,10 +91,8 @@ details.forEach(detail=>{
     
     `;
     cardContainer.appendChild(cardDiv);
-    // let x= detail.total_view
-    // x.sort(function (a,b){return  b-a});
-    // console.log(x)
-})
+    })
+
 //item quantity
 const itemField =document.getElementById('item-field');
 itemField.innerText= details.length
@@ -111,6 +100,7 @@ itemField.innerText= details.length
 //stopping spinner
 toggleSpinner(false);
     }
+
   /*------------------
   loading news details
   --------------------*/
@@ -120,8 +110,6 @@ fetch (url)
 .then (res => res.json())
 .then (data => showNewsDetail(data.data))
 .catch(error => console.log(error))
-
-
 }
 
 /*------------------
@@ -129,8 +117,6 @@ fetch (url)
   --------------------*/
 const showNewsDetail= details =>{
     details.forEach(detail => {
-        //toggleSpinner(true);
- 
 const title = document.getElementById('exampleModalLabel');
 title.innerText= detail.title;
 const modalDetail = document.getElementById('modal-detail');
@@ -142,15 +128,11 @@ modalDetail.innerHTML=`
 <p class="card-text">Badge: ${detail.rating.badge?detail.rating.badge:'No data found'}</p>
 <p class="card-text">Total Views: ${detail.total_view?detail.total_view:'No data found'}</p>
 `;
-
-        console.log(detail)
-    });
-
-   //console.log(details) 
-}
+});
+ }
 
 /*------------------
-  spinner
+         spinner
   --------------------*/
   const toggleSpinner = isLoading =>{
     const spinnerSection = document.getElementById('spinner');
@@ -162,6 +144,9 @@ modalDetail.innerHTML=`
     }
 }
 
-
+/*--------------------
+    calling functions
+  --------------------*/
 loadCategories();
-categoryDetail(01);
+//showing all news by default
+categoryDetail(08);

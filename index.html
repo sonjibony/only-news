@@ -40,20 +40,20 @@
             </div>
           </nav>
           <hr>
+
          <!-- ---------
             catagories
           ---------------> 
           <div id="category" class=" d-flex flex-wrap gap-5 justify-content-center py-3 fw-semibold">
           </div>
         
-
-         <!--------------------------- 
+          <!--------------------------- 
            items quantity for category 
           ----------------------------->
           <div  class="shadow-sm text-center py-2 mb-4 rounded-1 bg-white">
-<h3>Item founded for this category - <span id="item-field"></span></h3>
+          <h3>Item founded for this category - <span id="item-field"></span></h3>
           </div>
-          
+
               <!----------- 
                    spinner
                ------------->
@@ -63,27 +63,38 @@
                   <span class="visually-hidden">Loading...</span>
                 </div>
               </div>
-  </section>
-
-            </header>
+          </section>
+   </header>
 
 <!--------------- 
     main section
  ------------------>
+<main>
+    <!------------------------------- 
+        sorted by and trending field
+     -------------------------------->
+<section class="pt-4 pb-5 d-flex justify-content-between fw-bold">
+    <div class="d-flex gap-2 align-items-center">
+       <p class=" my-0 ">Sorted By View:</p>
+       <button class="btn btn-light text-muted shadow-sm">Default &#8628 </button> 
+   </div>
+   <div>
+    <button class="btn btn-success">Today's Pick</button>
+    <button class="btn btn-outline-success">Trending</button>
 
- <main>
+   </div>
+</section>
+
+
     <!----------------- 
         news section
      ------------------->
-<section id="card-container" class="d-flex flex-column justify-content-center align-items-center ">
-
-    
-    
-</section>
+    <section id="card-container" class="d-flex flex-column justify-content-center align-items-center ">
+    </section>
          
-
-  
-  <!-- Modal -->
+    <!----------------- 
+        modal part
+     ------------------->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -106,7 +117,7 @@
 <!-------------- 
 no news message
  ---------------->
-<h2 id="no-news" class="text-center text-danger d-none">Currently No News Available in this Category.</h2>
+<h2 id="no-news" class=" text-center text-danger  d-flex justify-content-center align-items-center d-none" style="height: 250px ;">Currently No News Available in this Category.</h2>
  </main>
 
 
