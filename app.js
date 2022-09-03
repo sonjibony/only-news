@@ -119,18 +119,22 @@ fetch (url)
  ---------- --------------------*/
 const showNewsDetail= details =>{
     details.forEach(detail => {
+    
 const title = document.getElementById('exampleModalLabel');
 title.innerText= detail.title;
 const modalDetail = document.getElementById('modal-detail');
 modalDetail.innerHTML=`
 <img src="${detail.image_url}" class="img-fluid w-100 rounded-start" alt="...">
+
 <p class="card-text">Author: ${detail.author.name?detail.author.name:'No data found'}</p>
 <p class="card-text">Publish Date: ${detail.author.publish_date?detail.author.publish_date:'No data found'}</p>
 <p class="card-text">Rating: ${detail.rating.number?detail.rating.number:'No data found'}</p>
 <p class="card-text">Badge: ${detail.rating.badge?detail.rating.badge:'No data found'}</p>
 <p class="card-text">Total Views: ${detail.total_view?detail.total_view:'No data found'}</p>
+<p> ${detail.details}</p>
 `;
 });
+
  }
 
 /*------------------
