@@ -77,8 +77,8 @@ details.forEach(detail=>{
       <div class="card-body">
         <h5 class="card-title">${detail.title?detail.title:'No data found'}</h5>
         <p  class="card-text   ">${detail.details.slice(0,300)}...</p>
-        <div class="d-flex justify-content-between align-items-center">
-        <div class="d-flex gap-2 align-items-center">
+        <div class="d-flex justify-content-between align-items-center ">
+        <div class="d-flex gap-2 align-items-center flex-wrap">
         <img src="${detail.author.img?detail.author.img:'No data found'}" class="img-fluid  rounded-circle" style="width:50px" alt="...">
         <p class="card-text">${detail.author.name?detail.author.name:'No data found'}</p>
 
