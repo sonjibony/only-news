@@ -7,7 +7,7 @@ const loadCategories = () =>{
     .then(res => res.json())
     .then(data => displayCategories(data.data.news_category))
     //error handling
-    .catch(error => console.log(error))
+    .catch(error => alert(error))
 }
 /*--------------------
   category displaying
@@ -20,7 +20,7 @@ const displayCategories = categories =>{
 const categoryName = document.createElement('p');
 
 categoryName.innerHTML=`
-<p onclick ="categoryDetail(${category.category_id})">${category.category_name}</p>
+<p ><button class="btn btn-light" onclick ="categoryDetail(${category.category_id})">${category.category_name}</button></p>
 `;
 
 categoryField.appendChild(categoryName);
@@ -35,7 +35,8 @@ const url = ` https://openapi.programming-hero.com/api/news/category/0${category
 fetch(url)
 .then (res => res.json())
 .then (data => showCategoryDetail(data.data))
-.catch(error => console.log(error));
+//error handling
+.catch(error => alert(error));
 
 }
 
@@ -109,12 +110,13 @@ const url=`https://openapi.programming-hero.com/api/news/${newsId}`;
 fetch (url)
 .then (res => res.json())
 .then (data => showNewsDetail(data.data))
-.catch(error => console.log(error))
+//error handling
+.catch(error => alert(error))
 }
 
-/*------------------
-  showing news details
-  --------------------*/
+/*------------------------------
+  showing news details in modal
+ ---------- --------------------*/
 const showNewsDetail= details =>{
     details.forEach(detail => {
 const title = document.getElementById('exampleModalLabel');
